@@ -39,23 +39,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: 10,
               ),
               PopupMenuButton(
-                icon : const Icon(Icons.more_vert_outlined),
+                  icon: const Icon(Icons.more_vert_outlined),
                   itemBuilder: (context) => [
+                        const PopupMenuItem(value: 1, child: Text('New Group')),
                         const PopupMenuItem(
-                          value: 1,
-                          child: Text('New Group')),
-                          const PopupMenuItem(
-                          value: 2,
-                          child: Text('New Community')),
-                          const PopupMenuItem(
-                          value: 3,
-                          child: Text('Starred Messages')),
-                          const PopupMenuItem(
-                          value: 4,
-                          child: Text('Linked Device')),
-                          const PopupMenuItem(
-                          value: 5,
-                          child: Text('Settings')),
+                            value: 2, child: Text('New Community')),
+                        const PopupMenuItem(
+                            value: 3, child: Text('Starred Messages')),
+                        const PopupMenuItem(
+                            value: 4, child: Text('Linked Device')),
+                        const PopupMenuItem(value: 5, child: Text('Settings')),
                       ]),
               const SizedBox(
                 width: 10,
@@ -64,29 +57,53 @@ class _HomeScreenState extends State<HomeScreen> {
             backgroundColor: Colors.teal,
             title: const Text('WhatsApp'),
           ),
-          body:  TabBarView(children: [
+          body: TabBarView(children: [
             Text('Community'),
             ListView.builder(
-              itemCount: 2,
-              itemBuilder: (context, index) {
-                return const ListTile(
-                  leading: CircleAvatar(backgroundImage: NetworkImage('https://static.toiimg.com/thumb/msid-95621077,width-400,resizemode-4/95621077.jpg') ),
-                  title: Text('Narendra Modi'),
-                  subtitle: Text('Hello Sahil '),
-                  trailing: Text('3:51 PM'),
-                );
-              }),
-            Text('Status'),
+                itemCount: 2,
+                itemBuilder: (context, index) {
+                  return const ListTile(
+                    leading: CircleAvatar(
+                        backgroundImage: NetworkImage(
+                            'https://static.toiimg.com/thumb/msid-95621077,width-400,resizemode-4/95621077.jpg')),
+                    title: Text('Narendra Modi'),
+                    subtitle: Text('Hello Sahil '),
+                    trailing: Text('3:51 PM'),
+                  );
+                }),
             ListView.builder(
-              itemCount: 2,
-              itemBuilder: (context, index) {
-                return const ListTile(
-                  leading: CircleAvatar(backgroundImage: NetworkImage('https://static.toiimg.com/thumb/msid-95621077,width-400,resizemode-4/95621077.jpg') ),
-                  title: Text('Narendra Modi'),
-                  subtitle: Text('(2) Missed Calls '),
-                  trailing: Icon(Icons.videocam , color: Color(0xff02897B),),
-                );
-              }),
+                itemCount: 2,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    leading: Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: Colors.green,
+                        ),
+                      ),
+                        child: const CircleAvatar(
+                            backgroundImage: NetworkImage(
+                                'https://static.toiimg.com/thumb/msid-95621077,width-400,resizemode-4/95621077.jpg'))),
+                    title: Text('Narendra Modi'),
+                    subtitle: Text('35m ago'),
+                  );
+                }),
+            ListView.builder(
+                itemCount: 2,
+                itemBuilder: (context, index) {
+                  return const ListTile(
+                    leading: CircleAvatar(
+                        backgroundImage: NetworkImage(
+                            'https://static.toiimg.com/thumb/msid-95621077,width-400,resizemode-4/95621077.jpg')),
+                    title: Text('Narendra Modi'),
+                    subtitle: Text('(2) Missed Calls '),
+                    trailing: Icon(
+                      Icons.videocam,
+                      color: Color(0xff02897B),
+                    ),
+                  );
+                }),
           ]),
         ));
   }
